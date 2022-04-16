@@ -1,0 +1,13 @@
+{% extends "base.html" %} 
+{% block content %}
+<h5>Available User and Its report</h5>
+<div>
+    
+    <ul>
+        {% for detail in details %}
+        <li>{{detail.name}} of age {{detail.age}} email {{detail.email}} with result {{detail.report}}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>Pneumonia detection</h2>
+
+<div>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <label for="age" class="upload-label" required>
+            Age
+        </label>
+        <input type="number" name="age" id="age" required>
+        <label for="Name" class="upload-label">
+            Name
+        </label>
+        <input type="text" name="Name" id="Name" required>
+        <label for="email" class="upload-label">
+            EmailId
+        </label>
+        <input type="email" name="email" id="email" >
+        <label for="dr" class="upload-label">
+            Name of dr
+        </label>
+        <input type="text" name="dr" id="dr">
+
+
+        <label for="imageUpload" class="upload-label">
+            Choose...
+        </label>
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+
+    <div class="image-section">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+        </div>
+    </div>
+
+    <!-- <div class="loader" style="display:none;"></div>
+
+    <h3 id="result">
+        <span> </span>
+    </h3> -->
+
+</div>
+
+{% endblock %}
