@@ -104,5 +104,5 @@ def upload():
         db.session.commit()
         
         # flash(f"Result is {result}")
-        return redirect(url_for('next'))
+        redirect(url_for('next'))
     return None
