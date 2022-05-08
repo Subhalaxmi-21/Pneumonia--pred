@@ -93,16 +93,18 @@ def upload():
         # Save the file to ./uploads
         basepath = os.path.dirname(__file__)
         file_path = os.path.join(
-            basepath, 'uploads', secure_filename(f.filename))
+            basepath, 'static', secure_filename(f.filename))
+        static_path='/static/'+f.filename
         f.save(file_path)
-
+            
         # Make prediction
         preds = model_predict(file_path, model)
         result=preds
-        t=User(name=name,age=age,email=email, dr=dr,filepath=file_path,report=result,date= datetime.utcnow())
+        t=User(name=name,age=age,email=email, dr=dr,filepath=static_path,report=result,date= datetime.utcnow())
         db.session.add(t)
         db.session.commit()
         
         # flash(f"Result is {result}")
-        redirect(url_for('next'))
+        # redirect(url_for('next'))
+        return result
     return None

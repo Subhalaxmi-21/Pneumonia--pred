@@ -3,11 +3,35 @@
 <h5>Available User and Its report</h5>
 <div>
     
-    <ul>
+    <!-- <ul>
         {% for detail in details %}
         <li>{{detail.name}} of age {{detail.age}} email {{detail.email}} with result {{detail.report}}</li>
         {% endfor %}
-    </ul>
+    </ul> -->
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Email</th>
+            <th scope="col">Report</th>
+            <th scope="col">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for detail in details %}
+          <tr>
+            
+            <td>{{detail.name}}</td>
+            <td>{{detail.age}}</td>
+            <td>{{detail.email}}</td>
+            <td>{{detail.report}}</td>
+            <td><a href="{{detail.filepath}}"><img src="{{detail.filepath}}" alt="" style="max-width: 15%; float: right;"></a></td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
 </div>
 
 {% endblock %}

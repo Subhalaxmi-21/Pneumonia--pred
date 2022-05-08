@@ -1,8 +1,8 @@
 $(document).ready(function () {
     // Init
     $('.image-section').hide();
-    // $('.loader').hide();
-    // $('#result').hide();
+    $('.loader').hide();
+    $('#result').hide();
 
     // Upload Preview
     function readURL(input) {
@@ -19,8 +19,8 @@ $(document).ready(function () {
     $("#imageUpload").change(function () {
         $('.image-section').show();
         $('#btn-predict').show();
-        $('#result').text('');
-        $('#result').hide();
+        // $('#result').text('');
+        // $('#result').hide();
         readURL(this);
     });
 
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
         // Show loading animation
         $(this).hide();
-        // $('.loader').show();
+        $('.loader').show();
 
         // Make prediction by calling api /predict
         $.ajax({
@@ -43,9 +43,9 @@ $(document).ready(function () {
             async: true,
             success: function (data) {
                 // Get and display the result
-                // $('.loader').hide();
-                // $('#result').fadeIn(600);
-                // $('#result').text(' Result:  ' + data);
+                $('.loader').hide();
+                $('#result').fadeIn(600);
+                $('#result').text(' Result:  ' + data);
                 console.log('Success!');
             },
         });
